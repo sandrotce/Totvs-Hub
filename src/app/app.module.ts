@@ -16,7 +16,7 @@ import { TenantComponent } from './tenant/tenant.component';
   imports: [
     BrowserModule,
     PoModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' })
   ],
   providers: [],
   bootstrap: [AppComponent]

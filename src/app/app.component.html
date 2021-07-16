@@ -1,0 +1,23 @@
+<div class="po-wrapper">
+  <po-toolbar p-title="TOTVS H U B"></po-toolbar>
+
+  <po-menu [p-menus]="menus"></po-menu>
+
+  <po-page-default p-title="">
+    <po-button
+      p-disabled="false"
+      p-icon="po-icon-star-filled"
+      p-label="Reload"
+      p-loading="false"
+      p-small="false"
+      p-type="default"
+      (p-click)="onClickButton()">
+    </po-button>
+
+      <po-table
+        p-container
+        [p-items]="itens">
+      </po-table>
+
+  </po-page-default>
+</div>

@@ -14,11 +14,17 @@ export class HomeComponent implements OnInit {
   title = 'TOTVS H U B';
 
   readonly menus: Array<PoMenuItem> = [
-    { label: 'Inicio', action: this.onClick.bind(this), icon: 'po-icon-home', shortLabel: 'Configuration' },
-    { label: 'Configuracao Erp', action: this.onClick.bind(this), icon: 'po-icon-device-desktop', shortLabel: 'Configuration' },
-    { label: 'Maintenance', action: this.onClick.bind(this), icon: 'po-icon po-icon-document', shortLabel: 'Maintenance' },
-    { label: 'Logs', action: this.onClick.bind(this), icon: 'po-icon-exclamation', shortLabel: 'Logs de transation' },
-    { label: 'Generic', action: this.onClick.bind(this), icon: 'po-icon-search', shortLabel: 'Generic query' },
+    { label: 'Inicio', link: './home', icon: 'po-icon-home', shortLabel: 'Configuration' },
+    { label: 'Configuracao Erp', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Configuration' ,
+      subItems : [
+      {label: 'Cadastro de Rotas', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
+      {label: 'de/para Empresas', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
+      {label: 'Cadastro de Adapter', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
+      {label: 'Sincronizador do EAI', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'}
+    ]},
+    { label: 'Maintenance', link: './home', icon: 'po-icon po-icon-document', shortLabel: 'Maintenance' },
+    { label: 'Logs', link: './home', icon: 'po-icon-exclamation', shortLabel: 'Logs de transation' },
+    { label: 'Generic', link: './home', icon: 'po-icon-search', shortLabel: 'Generic query' },
     { label: 'Logout', icon: 'exit', action: this.logout.bind(this) }
   ];
 
@@ -32,10 +38,6 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-  }
-
-  private onClick() {
-    alert('item')
   }
 
 

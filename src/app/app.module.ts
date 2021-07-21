@@ -2,23 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { PoModule } from '@po-ui/ng-components';
-import { RouterModule } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { TenantComponent } from './tenant/tenant.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeModule } from './home/home.module';
+import { LoginService } from './login/login.service';
+import { SharedModule } from './shared/shared.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    TenantComponent
-  ],
+
   imports: [
+    AppRoutingModule,
     BrowserModule,
-    PoModule,
-    RouterModule.forRoot([], { relativeLinkResolution: 'legacy' })
+    SharedModule,
+    HomeModule,
+    LoginModule,
   ],
-  providers: [],
+  declarations: [
+    AppComponent
+  ],
+  providers: [
+    LoginService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

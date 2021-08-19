@@ -3,13 +3,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 
-//import { AuthGuardService } from './auth/auth-guard.service';
+import { AuthGuardService } from './auth/auth-guard.service';
 
 const routes: Routes = [
-  { path: '', component : HomeComponent},
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) }
-
-  /*{
+  {
     path: '',
     pathMatch: 'full',
     redirectTo: '/home'
@@ -22,8 +19,8 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
-  },*/
-
+  },
+  { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({

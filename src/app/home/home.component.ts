@@ -17,14 +17,14 @@ export class HomeComponent implements OnInit {
     { label: 'Inicio', link: './home', icon: 'po-icon-home', shortLabel: 'Configuration' },
     { label: 'Configuracao Erp', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Configuration' ,
       subItems : [
-      {label: 'Cadastro de Rotas', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
-      {label: 'de/para Empresas', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
+      {label: 'Cadastro de Rotas', link: './rotaspr', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
+      {label: 'De/para Empresas', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
       {label: 'Cadastro de Adapter', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'},
       {label: 'Sincronizador do EAI', link: './home', icon: 'po-icon-device-desktop', shortLabel: 'Rotas'}
     ]},
-    { label: 'Maintenance', link: './home', icon: 'po-icon po-icon-document', shortLabel: 'Maintenance' },
+    { label: 'Configuração Hub', link: './home', icon: 'po-icon po-icon-document', shortLabel: 'Maintenance' },
     { label: 'Logs', link: './home', icon: 'po-icon-exclamation', shortLabel: 'Logs de transation' },
-    { label: 'Generic', link: './home', icon: 'po-icon-search', shortLabel: 'Generic query' },
+    { label: 'Consulta Generica', link: './home', icon: 'po-icon-search', shortLabel: 'Generic query' },
     { label: 'Logout', icon: 'exit', action: this.logout.bind(this) }
   ];
 

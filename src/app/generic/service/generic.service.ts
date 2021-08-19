@@ -6,13 +6,14 @@ import { Observable } from 'rxjs';
 
 import { ObjectLength } from './../../model/objectLength';
 import { PoResponse } from './../../model/po-response.interface';
+import {User} from './user.model'
 
 @Injectable()
 export class GenericService<T> {
-
+  user : User
   path: string;
 
-  private readonly urlApi = 'http://localhost:3001';
+  private readonly urlApi = 'https://localhost:3001';
 
   constructor(private http: HttpClient) { }
 
@@ -38,6 +39,11 @@ export class GenericService<T> {
 
   postWithPath(path: string, entity: any): Observable<T> {
     return this.http.post<T>(`${this.urlApi}/${this.path}/${path}`, entity);
+  }
+
+  postWithPathLogin(path : string, email:string, password:string): Observable<User> {
+    return this.http.post<User>(`${this.urlApi}/${path}`, {email : email, password : password})
+                               .pipe(map(user => this.user = user));
   }
 
   put(entity: any): Observable<T> {

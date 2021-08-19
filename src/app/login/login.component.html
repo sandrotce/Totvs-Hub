@@ -1,23 +1,13 @@
 <div class="po-wrapper">
   <po-toolbar p-title=""></po-toolbar>
   <po-page-login
-    p-logo=""
-    p-secondary-logo=""
+    p-logo="../../assets/images/logo_totvs.svg"
+    p-loading="loading"
+    p-secondary-logo="../../assets/images/logo_grey.svg"
     p-product-name="TOTVS HUB"
     [p-hide-remember-user]="hideRememberUser"
     (p-login-submit)="loginSubmit($event)"
-    p-custom-field="customField"
     >
   </po-page-login>
 </div>
-<po-select
-    p-auto-focus=true
-    p-disabled="string | boolean"
-    p-help="string"
-    p-label="string"
-    name="string"
-    p-optional=true
-    p-placeholder="string"
-    p-readonly=true
-    p-required="string | boolean" >
-</po-select>
+

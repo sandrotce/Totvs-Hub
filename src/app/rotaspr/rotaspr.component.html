@@ -1,0 +1,32 @@
+<div class="po-font-text-bold">Cadastro de Rotas - Protheus</div>
+
+<po-divider></po-divider>
+<po-button
+    p-auto-focus="boolean"
+    (p-click)="incluir()"
+    p-disabled="boolean"
+    p-icon="string | TemplateRef<void>"
+    p-label="Incluir"
+    p-loading="boolean"
+    p-small="boolean"
+    p-type="string" >
+</po-button>
+<po-divider></po-divider>
+<po-table
+  [p-container]="true"
+  [p-height]="400"
+  [p-hide-text-overflow]="true"
+  [p-selectable]="true"
+  [p-sort]="true"
+  [p-striped]="true"
+  [p-actions]="actions"
+  [p-columns]="columns"
+  [p-items]="items"
+  [p-max-columns]="5"
+  (p-collapsed)="onCollapseDetail()"
+  (p-expanded)="onExpandDetail()"
+>
+</po-table>
+
+<po-divider></po-divider>
+

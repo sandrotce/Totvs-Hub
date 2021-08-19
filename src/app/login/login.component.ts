@@ -26,9 +26,9 @@ export class  LoginComponent implements OnInit {
   }
 
   loginSubmit(formData: PoPageLogin) {
-    const user = Object.assign({ username: formData.login, password: formData.password });
+    //const user = Object.assign({ email: formData.login, password: formData.password });
 
-    this.loginService.postWithPath('login', user).subscribe(() => {
+    this.loginService.postWithPathLogin('login', formData.login, formData.password).subscribe(() => {
       this.storage.set('isLoggedIn', 'true').then(() => {
         this.router.navigate(['/']);
       });

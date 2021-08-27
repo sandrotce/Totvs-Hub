@@ -1,6 +1,7 @@
 import { RotasprService } from './rotaspr.service';
 import { Component, OnInit } from '@angular/core';
 import { Rotaspr } from '../model/rotaspr';
+import { PoPageAction, PoPageFilter } from '@po-ui/ng-components';
 
 import {
   PoDialogService,
@@ -19,22 +20,12 @@ import {
 })
 export class RotasprComponent implements OnInit {
 
-  items = this.getItems();
+  items: Array<Rotaspr>;
 
-  /*
-  = [
-    {id : 1, aplicacao : 'MASTERSFA', produto : 'MASTER SFA APL', canalenvio: '', soap : {}},
-    {id : 2, aplicacao : 'MASTERCRM', produto : 'MASTERCRM', canalenvio: '' ,rest : {}},
+  actionsList: Array<PoPageAction> = [
+    { label: 'Incluir', url: 'home/speakers/create' }
   ];
 
-  this.rotaspr.get('login', formData.login, formData.password).subscribe(() => {
-    this.storage.set('isLoggedIn', 'true').then(() => {
-      this.router.navigate(['/']);
-    });
-  }, () => {
-    this.poNotification.error('Invalid username or password. Please try again.');
-  });
-*/
   columns : Array<PoTableColumn> = [
     { property: 'produto', label: 'Produto' },
     { property: 'aplicacao', label: 'Aplicacao' }
@@ -42,7 +33,7 @@ export class RotasprComponent implements OnInit {
 
   actions: Array<PoTableAction> = [
     { action: this.details.bind(this), icon: 'po-icon-info', label: 'Details' },
-    { action: this.remove.bind(this), icon: 'po-icon po-icon-delete', label: 'Remove' }
+    { action: this.remove.bind(this) , icon: 'po-icon po-icon-delete', label: 'Remove' }
   ];
 
   constructor( private rotaspr : RotasprService,
@@ -50,16 +41,17 @@ export class RotasprComponent implements OnInit {
   {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+      this.getItems();
   }
+  /*Metodo para obter da api as rotas cadastradas no protheus*/
   getItems() {
-    let it = this.rotaspr.get().subscribe(() => {
-      console.log('erro');
+      this.rotaspr.get().subscribe(items => {
+        this.items = items[0].items;
     }, () => {
-      this.poNotification.error('Invalid username or password. Please try again.');
+      this.poNotification.error('Não há items.');
     });
 
-    return it;
   }
   onExpandDetail(){
 
@@ -74,6 +66,20 @@ export class RotasprComponent implements OnInit {
 
   }
   incluir(){
-
+    //url: 'home/speakers/create'
   }
 }
+ /*
+  itex = [
+    {id : 1, aplicacao : 'MASTERSFA', produto : 'MASTER SFA APL', canalenvio: '', soap : {}},
+    {id : 2, aplicacao : 'MASTERCRM', produto : 'MASTERCRM', canalenvio: '' ,rest : {}},
+  ];
+
+  this.rotaspr.get('login', formData.login, formData.password).subscribe(() => {
+    this.storage.set('isLoggedIn', 'true').then(() => {
+      this.router.navigate(['/']);
+    });
+  }, () => {
+    this.poNotification.error('Invalid username or password. Please try again.');
+  });
+*/

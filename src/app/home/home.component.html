@@ -1,6 +1,20 @@
 <div class="po-wrapper">
+
   <po-toolbar [p-title]="title"></po-toolbar>
-  <po-menu [p-menus]="menus"></po-menu>
+  <po-menu [p-menus]="menus">
+  <ng-template p-menu-header-template>
+    <div _ngcontent-mjd-c324="" class="po-row po-p-4 po-pt-3 po-pb-2"><a _ngcontent-mjd-c324="" href="./"><img _ngcontent-mjd-c324="" src="https://ti.totvs.com/api/assets/images/logo-white.png"></a></div>
+  </ng-template>
+  <!--<po-menu-filter>
+    <div class="po-menu-filter-container">
+      <input type="text" class="po-menu-filter" placeholder="Pesquisar">
+    <div class="po-menu-filter-search-icon-container">
+    <span class="po-icon po-menu-filter-icon po-icon-search">
+    </span></div><div class="po-menu-filter-close-icon-container">
+    <po-clean></po-clean></div>
+    </div>
+   </po-menu-filter> !-->
+  </po-menu>
 
   <router-outlet></router-outlet>
 </div>
